@@ -5,13 +5,17 @@
     background-color: rgb(218, 211, 211);
 }
 
-.home_picture {
-    /* background-image: url("../img/home_picture.jpg"); */
-    /* height: ; */
-    width: 100%;
-    object-fit:fill 
+/* HomePage */
+.content_home_picture, .main_page {
+    width:100%;
+    height:850px;
 }
 
-.main_page {
+.home_picture, .main_picture {
+    width: 100%;
+    object-fit:content;
+}
+
+.login_page, .register_page {
     height: 630px;
 }
