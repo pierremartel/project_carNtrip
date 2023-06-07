@@ -1,27 +1,31 @@
-<aside class="w-1/5 bg-slate-300 border border-slate-300 drop-shadow-lg">
+<aside class="w-1/5 bg-slate-500 drop-shadow-lg">
     <div class="main_page relative">    
         <div>
             <div class="my-8">
-                <div class="flex justify-start bg-red-800 py-2 px-4 rounded-md">
+                <div class="flex justify-start bg-amber-600 py-2 px-4 rounded-md">
                     <i class="fa-solid fa-house fa-lg ml-8 mt-3"></i>
-                    <p class="text-white ml-3 text-lg capitalize">Dashboard</p>
+                    <a href="{{path('main_page')}}" class="text-white ml-3 text-lg capitalize">Dashboard</a>
                 </div>
             </div>
 
             <hr>
 
             <div class="my-32">
-                <div class="flex justify-start my-4 ">
+                <div class="flex justify-start my-4 hover:bg-amber-600 py-2 px-4 rounded-md">
                     <i class="fa-solid fa-car fa-lg ml-12 mt-3"></i>
-                    <p class="ml-3 text-lg capitalize">voitures</p>
+                    <a href="{{path('car')}}" class="ml-3 text-lg capitalize">car</a>
                 </div>
-                <div class="flex justify-start my-4">
+                <div class="flex justify-start my-4 hover:bg-amber-600 py-2 px-4 rounded-md">
                     <i class="fa-solid fa-users fa-lg ml-12 mt-3"></i>
-                    <p class="ml-3 text-lg capitalize">clients</p>
+                    <a href="#" class="ml-3 text-lg capitalize">clients</a>
                 </div>
-                <div class="flex justify-start">
+                <div class="flex justify-start my-4 hover:bg-amber-600 py-2 px-4 rounded-md">
                     <i class="fa-solid fa-calendar-days fa-lg ml-12 mt-3"></i>
-                    <p class="ml-3 text-lg capitalize">réservations</p>
+                    <a href="#" class="ml-3 text-lg capitalize">reservations</a>
+                </div>
+                <div class="flex justify-start hover:bg-amber-600 py-2 px-4 rounded-md">
+                    <i class="fa-solid fa-calendar-days fa-lg ml-12 mt-3"></i>
+                    <a href="#" class="ml-3 text-lg capitalize">settings</a>
                 </div>
             </div>
         </div>
