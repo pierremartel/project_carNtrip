@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add a reservation{% endblock %}
+
+{% block body %}
+
+<div class="flex">
+    {# Menu secondaire du dashboard #}
+    {% include "shared/_navbarSecond.html.twig" %}
+
+    <main class="w-4/5 p-10 bg-slate-100">
+        <span class="mb-12 text-lg capitalize">Home / Reservations</span>
+        <div class="h-auto border border-b mt-6">
+            <h1 class="text-2xl text-white font-semibold mb-10 bg-slate-500 pl-2">Add a reservation</h1>
+
+                {# <label for="location">Choose a location:</label>
+                <select name="location" id="location">
+                    {% for city in cities %}
+                        {% if city.country is same as "PT" %}
+                            <option value="{{ city.name }}">{{ city.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select> #}
+    
+
+            {{ form_start(formBooking) }}
+            <div class="shadow-xl rounded-md px-10 pt-6 pb-24">
+                <section class="bg-slate-200 ">
+                    <h2 class="bg-slate-300 text-lg p-2 uppercase rounded-t-md">Client</h2>
+                    
+                    <div class="flex justify-between items-center mt-6 mx-32 p-4">
+                        {{ form_row(formBooking.user) }}  
+                    </div>
+                </section>
+                    
+                <section class="h-full mt-8 bg-slate-200">
+                    <h2 class="bg-slate-300 text-lg p-2 uppercase rounded-t-md">Detail</h2>
+                    <div class="flex justify-between items-center mt-6 mx-32 p-4">
+                        {{ form_row(formBooking.pickupDate) }}  
+                        {{ form_row(formBooking.dropoffDate) }}  
+                        {{ form_row(formBooking.car) }}  
+                    </div>
+                    <div class="flex justify-between items-center mt-6 mx-32 p-4">
+                              
+                        {{ form_row(formBooking.pickupTime) }}  
+                        {{ form_row(formBooking.dropoffTime) }} 
+
+                        {# Data From APIService #}
+                        <div class="">    
+                            <label for="pickup_location">Pickup location</label>
+                            <select name="pickup_location" id="pickup_location" autocomplete="on" class="rounded-md py-2 px-3 w-48">
+                                <option class="text-center">---------------</option>
+                                {% for city in cities | sort %}
+                                    {% if city.country is same as "PT" %}
+                                        <option value="{{ city.name }}">{{ city.name }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>  
+                        {# Data From APIService #}
+                        <div class="">    
+                            <label for="dropoff_location">Dropoff location</label>
+                            <select name="dropoff_location" id="dropoff_location" autocomplete="on" class="rounded-md py-2 px-3 w-48">
+                                <option class="text-center">---------------</option>
+                                {% for city in cities | sort %}
+                                    {% if city.country is same as "PT" %}
+                                        <option value="{{ city.name }}">{{ city.name }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>  
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <button type="submit" class=" w-72 rounded-md py-2 px-10 mt-12 mb-8 text-white bg-green-500">Add</button>
+                    </div>
+                </section>
+            </div>
+            {{ form_end(formBooking) }}
+
+        </div>
+    </main>
+</div>
+
+{% endblock %}

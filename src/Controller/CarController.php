@@ -68,7 +68,7 @@ class CarController extends AbstractController
     {
         $car = $carRepo->find($id);
         if(!$car) {
-            throw $this->createNotFoundException("Product $id doesn't exist and cannot be modified !");
+            throw $this->createNotFoundException("Product n°$id doesn't exist and cannot be modified !");
         }
 
         $formCar = $this->createForm(CarType::class, $car);
@@ -95,7 +95,7 @@ class CarController extends AbstractController
         $car = $carRepo->find($id);
 
         if(!$car) {
-            throw $this->createNotFoundException("Product $id doesn't exist and cannot be delete !");
+            throw $this->createNotFoundException("Product n°$id doesn't exist and cannot be delete !");
         }
 
         $em->remove($car);

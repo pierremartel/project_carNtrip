@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My reservations{% endblock %}
+
+{% block body %}
+
+<div class="flex">
+    {# Menu secondaire du dashboard #}
+    {% include "shared/_navbarSecond.html.twig" %}
+
+    <main class="w-4/5 p-10 bg-slate-100">
+
+        {# Message Flash #}
+        {% for rubrique, messages in app.flashes %}
+            <div class="bg-green-600 text-white text-center">
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        <span class="mb-12 text-lg capitalize">Home / Reservations</span>
+        <div class="h-auto border border-b mt-6 ">
+            <h1 class="text-2xl text-white font-semibold mb-10 bg-slate-500 pl-2">My reservation</h1>
+
+            <div class="shadow-xl rounded-md px-10 pt-6 pb-8 grid grid-cols-4 gap-4">
+                {% for booking in bookings %}
+                    <div class="bg-slate-200  rounded-md text-center">
+                        <div class="text-lg font-medium">
+                            {{booking.car.name}} {{ booking.car.type }}
+                        </div>
+                        <div>
+                            {{booking.pickupDate | date("m/d/Y")}} - {{ booking.dropoffDate | date("m/d/Y") }}
+                        </div>
+                        <div>
+                            {{booking.pickupTime | date("H:i")}} - {{ booking.dropoffTime | date("H:i") }}
+                        </div>
+                        <div>
+                            <p>Departure : {{booking.pickupLocation}} </p>  
+                        </div>
+                        <div>
+                            <p>Arrival : {{booking.dropoffLocation}} </p>  
+                        </div>
+                        <div>
+                            <p>Client : {{booking.user.name}}  </p>
+                               
+                        </div>
+                        <div class="flex justify-center items-center mt-4">
+                            <a class="bg-green-500 text-white w-1/2 py-1">Edit</a>
+                            <a href="{{path('booking_remove', {'id':booking.id})}}" class="bg-red-500 text-white w-1/2 py-1">Delete</a>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class=" h-48 rounded-md bg-slate-200 text-xl font-semibold flex items-center justify-center">
+                  <a href="{{path('booking_add')}}" class=" "> + Add a reservation </a>  
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+{% endblock %}
